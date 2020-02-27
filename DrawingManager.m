@@ -178,6 +178,12 @@ classdef DrawingManager<handle
             [~]=obj.gcf;
             obj.defaultSetting();
         end
+        function varargout=polHist_prepost(obj,varargin)
+            % wrapper func of matlab plot.
+            [varargout{1:nargout}]=polHist_prepost(varargin{:});
+            [~]=obj.gcf;
+            obj.defaultSetting();
+        end
         %% wrapper for Viewer class
         function Viewer(obj,varargin)
             % wrapper func for viewer
