@@ -13,6 +13,7 @@ classdef DrawingManager<handle
         tangoFig % ‘{¸‘ÎÛ‚Ìfigure object
         flags
         viewer
+        FontSize=15
     end
     %% properties(private)
     properties(Access=private)
@@ -85,7 +86,7 @@ classdef DrawingManager<handle
             obj.tango=obj.tangoFig.Number;
             obj.moveShow;
             ax=gca;
-            ax.FontSize=15;
+            ax.FontSize=obj.FontSize;
         end
         
         %% wrapper functions below
@@ -156,7 +157,7 @@ classdef DrawingManager<handle
         end
         function varargout=legend(obj,varargin)
             % wrapper func of matlab legend.
-            [varargout{1:nargout}]=legend(varargin{:});
+            [varargout{1:nargout}]=legend(varargin{:},'FontSize',obj.FontSize);
             [~]=obj.gcf;
             obj.defaultSetting();
         end
@@ -178,9 +179,27 @@ classdef DrawingManager<handle
             [~]=obj.gcf;
             obj.defaultSetting();
         end
+        function varargout=quiver(obj,varargin)
+            % wrapper func of matlab legend.
+            [varargout{1:nargout}]=quiver(varargin{:});
+            [~]=obj.gcf;
+            obj.defaultSetting();
+        end
+        function varargout=contourf(obj,varargin)
+            % wrapper func of matlab legend.
+            [varargout{1:nargout}]=contourf(varargin{:});
+            [~]=obj.gcf;
+            obj.defaultSetting();
+        end
         function varargout=polHist_prepost(obj,varargin)
             % wrapper func of matlab plot.
             [varargout{1:nargout}]=polHist_prepost(varargin{:});
+            [~]=obj.gcf;
+            obj.defaultSetting();
+        end
+        function varargout=plotLinRegNConfInt(obj,varargin)
+            % wrapper func of matlab plot.
+            [varargout{1:nargout}]=plotLinRegNConfInt(varargin{:});
             [~]=obj.gcf;
             obj.defaultSetting();
         end
@@ -214,6 +233,13 @@ classdef DrawingManager<handle
             obj.defaultSetting();
             ax=gca;
             ax.InnerPosition=[0.0938 0.1347 0.62 0.7877];
+        end
+        %% wrapper func for drawWave
+        function varargout=drawWave(obj,varargin)
+            % wrapper func of matlab legend.
+            [varargout{1:nargout}]=drawWave(varargin{:});
+            [~]=obj.gcf;
+            obj.defaultSetting();
         end
     end
     %% static methods
