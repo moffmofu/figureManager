@@ -101,6 +101,7 @@ classdef FigureStorageManager<handle
                         end
                     end
                 end
+                title=erase(title,"(reset)"); %resetğŒ‚ÍÚ‚Á‚Ä‚é‚Æ×–‚‚È‚Ì‚Å
             end
             obj.savetitle=title;
         end
@@ -110,6 +111,9 @@ classdef FigureStorageManager<handle
             obj.setDir();
             f=gcf;
             figout(f.Number,obj.saveDir,obj.savetitle,"nosync");
+            flgs=obj.flags;
+            mkdir(obj.saveDir+"/flags");
+            save(obj.saveDir+"/flags/"+obj.savetitle+"flag","flgs",'-v7.3');
         end
     end
     %% static methods
