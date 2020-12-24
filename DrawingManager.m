@@ -155,6 +155,12 @@ classdef DrawingManager<handle
             [~]=obj.gcf;
             obj.defaultSetting();
         end
+        function varargout=fill(obj,varargin)
+            % wrapper func of matlab plot.
+            [varargout{1:nargout}]=fill(varargin{:});
+            [~]=obj.gcf;
+            obj.defaultSetting();
+        end
         function varargout=legend(obj,varargin)
             % wrapper func of matlab legend.
             [varargout{1:nargout}]=legend(varargin{:},'FontSize',obj.FontSize);
