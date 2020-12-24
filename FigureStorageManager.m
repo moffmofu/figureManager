@@ -112,7 +112,9 @@ classdef FigureStorageManager<handle
             f=gcf;
             figout(f.Number,obj.saveDir,obj.savetitle,"nosync");
             flgs=obj.flags;
+            warning('off','MATLAB:MKDIR:DirectoryExists');
             mkdir(obj.saveDir+"/flags");
+            warning('on','MATLAB:MKDIR:DirectoryExists');
             save(obj.saveDir+"/flags/"+obj.savetitle+"flag","flgs",'-v7.3');
         end
     end
