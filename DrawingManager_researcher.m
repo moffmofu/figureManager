@@ -30,7 +30,7 @@ classdef DrawingManager_researcher<DrawingManager
             obj.drawNote;
             obj.moveShow;
             obj.anno_update;
-            ax.FontSize=14;
+            ax.FontSize=16;
         end
         
         function drawNote(obj)
